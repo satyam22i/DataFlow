@@ -26,17 +26,14 @@ def parse_date(val):
     return pd.NaT
 
 
-# ----------------------------
-# CLEAN CUSTOMERS
-# ----------------------------
+
 def clean_customers():
     df = load_csv(RAW / "customers.csv")
     before_rows = len(df)
 
-    # Clean signup_date
+    
     df["signup_date"] = pd.to_datetime(df["signup_date"], errors="coerce")
 
-    # Remove duplicates keeping latest signup_date
     df = df.sort_values("signup_date").drop_duplicates(
         subset="customer_id", keep="last"
     )
@@ -52,7 +49,7 @@ def clean_customers():
     # Email standardization
     df["email"] = df["email"].astype(str).str.lower()
 
-    # Better email validation
+    
     df["is_valid_email"] = df["email"].str.match(
         r"^[^@]+@[^@]+\.[^@]+$", na=False
     )
@@ -65,26 +62,24 @@ def clean_customers():
     print()
 
 
-# ----------------------------
-# CLEAN ORDERS
-# ----------------------------
+# orders
 def clean_orders():
     df = load_csv(RAW / "orders.csv")
     before_rows = len(df)
 
-    # Parse date using custom parser
+    
     df["order_date"] = df["order_date"].apply(parse_date)
 
-    # Drop unrecoverable rows
+
     df = df.dropna(subset=["customer_id", "order_id"], how="all")
 
-    # Fix amount
+
     df["amount"] = pd.to_numeric(df["amount"], errors="coerce")
     df["amount"] = df.groupby("product")["amount"].transform(
         lambda x: x.fillna(x.median())
     )
 
-    # Normalize status
+
     status_map = {
         "done": "completed",
         "complete": "completed",
@@ -97,7 +92,7 @@ def clean_orders():
     allowed_status = {"completed", "pending", "cancelled", "refunded"}
     df.loc[~df["status"].isin(allowed_status), "status"] = "pending"
 
-    # Derived column
+
     df["order_year_month"] = df["order_date"].dt.strftime("%Y-%m")
 
     df.to_csv(PROCESSED / "orders_clean.csv", index=False)
