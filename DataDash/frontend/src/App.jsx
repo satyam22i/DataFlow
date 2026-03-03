@@ -19,7 +19,7 @@ ChartJS.register(
   BarElement, ArcElement, Tooltip, Legend, Filler
 );
 
-const API = "http://127.0.0.1:8000";
+const API = "https://dataflow-2.onrender.com";
 const COLORS = ["#6366f1", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#06b6d4", "#f43f5e", "#84cc16"];
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
