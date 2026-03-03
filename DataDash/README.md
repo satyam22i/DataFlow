@@ -263,27 +263,8 @@ Sortable table of highest-spending customers.
 - Fully usable on **1280px desktop** (multi-column grid layout)
 - Collapses to **single column on mobile (375px)**
 
----
-
-## 🧪 Running Tests
-
-```bash
-pytest tests/ -v
-```
-
-Tests cover core data-cleaning functions in `clean_data.py`:
-- Email validation logic
-- Multi-format date parsing
-- Status normalisation mapping
-- Duplicate removal behaviour
-
----
 
 ## 🐛 Common Issues & Fixes
-
-### Dashboard shows blank / React hook error
-**Cause:** `useMemo` or other hooks were called after an early `return` statement.
-**Fix:** All hooks must be declared at the top of the component, before any `if (loading) return` or `if (error) return`.
 
 ### "Cannot connect to backend" error on dashboard
 **Cause:** The FastAPI server isn't running.
