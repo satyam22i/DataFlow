@@ -87,10 +87,9 @@ npm --version
 
 ```bash
 # If cloning from git
-git clone <repo-url>
-cd firstname_lastname_assignment
+git clone https://github.com/satyam22i/DataFlow
+cd dataDash
 
-# Or just extract the ZIP and open the folder
 ```
 
 ### Step 2 — Set up Python virtual environment
