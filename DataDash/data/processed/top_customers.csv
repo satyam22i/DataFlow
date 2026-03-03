@@ -1,0 +1,11 @@
+customer_id,name,region,total_spend,churned
+373.0,Michael Simon,East,3838.95,False
+458.0,Charles Moreno,North,3029.24,False
+105.0,Carlos Martinez,South,2468.74,True
+375.0,Margaret Brown,West,2087.45,True
+73.0,Robin Blankenship,North,2055.35,True
+282.0,Stephen Gilbert,North,1844.55,False
+45.0,Scott Jones,West,1839.8600000000001,True
+81.0,Matthew Simmons,West,1810.62,True
+127.0,John Fischer,East,1770.37,False
+107.0,Ryan Perez,West,1747.77,False
