@@ -332,18 +332,6 @@ npm run dev
 5. **Missing product match** — Orders whose `product` name doesn't match any entry in `products.csv` are kept in the analysis with `category = NaN`. They are excluded from category-level aggregations.
 6. **Median fill** — Missing `amount` values are filled with the **median amount of the same product**. If a product has no other orders, the global median is used as fallback.
 
----
-
-## 📬 Submission
-
-Submit a ZIP named `firstname_lastname_assignment.zip` containing the entire project folder.
-
-Send to the provided email with subject line:
-```
-[Technical Assignment] Your Full Name
-```
-
-**Deadline:** 72 hours from when the document was shared (10-point penalty for submissions up to 24 hours late).
 
 ---
 
